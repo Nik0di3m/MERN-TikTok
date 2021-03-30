@@ -1,12 +1,31 @@
 import React from 'react'
 import './VideoFooter.css'
-const VideoFooter = () => {
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import Ticker from 'react-ticker'
+const VideoFooter = ({ description, channel, song }) => {
     return (
         <div className="videoFooter">
             <div className="videoFooter__text">
-                <h3>@Nikodex</h3>
-                <p>This is a description...</p>
+                <h3>@{channel}</h3>
+                <p>{description}</p>
+                <div className="videoFooter__ticker">
+                    <MusicNoteIcon
+                        className="videoFooter__icon"
+                    />
+                    <Ticker mode="smooth">
+                        {({ index }) => (
+                            <>
+                                <p> {song} </p>
+                            </>
+                        )}
+                    </Ticker>
+                </div>
             </div>
+            <img
+                className="videoFooter__record"
+                src="https://pngimg.com/uploads/vinyl/vinyl_PNG102.png"
+                alt=""
+            />
         </div>
     )
 }

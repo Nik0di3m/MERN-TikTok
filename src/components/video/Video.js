@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import './Video.css'
 import VideoFooter from './videofooter/VideoFooter';
 import VideoSideBar from './videosidebar/VideoSideBar';
-const Video = ({ url }) => {
+const Video = ({ url, likes, share, chat, channel, description, song }) => {
 
     const videoRef = useRef(null);
     const [play, setPlay] = useState(false);
@@ -27,11 +27,17 @@ const Video = ({ url }) => {
             ></video>
             {/* VideFooter */}
             <div className="video__footer">
-                <VideoFooter />
+                <VideoFooter
+                    channel={channel}
+                    description={description}
+                    song={song} />
             </div>
             {/* VideoSideBar */}
             <div className="video__sideBar">
-                <VideoSideBar />
+                <VideoSideBar
+                    likes={likes}
+                    chat={share}
+                    share={chat} />
             </div>
         </div>
     )
